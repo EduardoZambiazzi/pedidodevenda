@@ -3,7 +3,9 @@
 #
 # Resource files are binaries containing manifest, project icon and version info.
 # They can not be viewed as text or compared by diff-tools. Consider replacing them with .rc files.
-#*.res
+# (des-comentado: o icone/versao ja ficam declarados de forma reproduzivel no
+# .dproj via Icon_MainIcon/VerInfo_Keys, entao o .res e so saida derivada)
+*.res
 #
 # Type library file (binary). In old Delphi versions it should be stored.
 # Since Delphi 2009 it is produced from .ridl file and can safely be ignored.
@@ -80,3 +82,16 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+
+# Banco de dados Firebird local (gerado a partir de db/db.sql, não versionar)
+# (ancorado na raiz com "/" - sem isso, "data/" também casa com "src/Data/"
+# em filesystems case-insensitive como o do Windows)
+/data/
+*.fdb
+*.gdb
+
+# config.ini local com credenciais reais (versionamos apenas config.ini.example)
+config.ini
+
+# fbclient.dll é ignorado acima por "*.dll", mas precisa ser distribuído em /bin
+!bin/fbclient.dll
