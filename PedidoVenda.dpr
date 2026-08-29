@@ -1,5 +1,7 @@
 ﻿program PedidoVenda;
 
+{$R *.dres}
+
 uses
   Vcl.Forms,
   PedidoVendaView in 'src\View\PedidoVendaView.pas' {FormPedidoVenda},
@@ -17,11 +19,14 @@ uses
   ProdutoRepositorio in 'src\Repository\ProdutoRepositorio.pas',
   PedidoRepositorio in 'src\Repository\PedidoRepositorio.pas',
   ConfiguracaoAplicacao in 'src\Data\ConfiguracaoAplicacao.pas',
-  FabricaConexaoFireDAC in 'src\Data\FabricaConexaoFireDAC.pas';
+  FabricaConexaoFireDAC in 'src\Data\FabricaConexaoFireDAC.pas',
+  Vcl.Themes,
+  Vcl.Styles;
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.Title := 'Pedido de venda';
   Application.CreateForm(TFormPedidoVenda, FormPedidoVenda);
   Application.Run;
 end.
