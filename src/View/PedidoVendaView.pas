@@ -22,6 +22,8 @@ type
     edtClienteCidade: TEdit;
     lblClienteUF: TLabel;
     edtClienteUF: TEdit;
+    lblObservacao: TLabel;
+    edtObservacao: TEdit;
     grpItem: TGroupBox;
     lblProdutoCodigo: TLabel;
     edtProdutoCodigo: TEdit;
@@ -184,6 +186,7 @@ begin
   FIndiceEdicaoItem := -1;
 
   edtClienteCodigo.Text := '';
+  edtObservacao.Text := '';
   LimparCamposCliente;
   LimparCamposItem;
   AtualizarGrid;
@@ -417,6 +420,7 @@ procedure TFormPedidoVenda.btnGravarPedidoClick(Sender: TObject);
 var
   NumeroPedido: Integer;
 begin
+  FPedido.Observacao := Trim(edtObservacao.Text);
   try
     NumeroPedido := FPedidoService.GravarPedido(FPedido);
   except

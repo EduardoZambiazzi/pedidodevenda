@@ -111,6 +111,21 @@ object FormPedidoVenda: TFormPedidoVenda
       ReadOnly = True
       TabOrder = 3
     end
+    object lblObservacao: TLabel
+      Left = 16
+      Top = 60
+      Width = 68
+      Height = 15
+      Caption = 'Observa'#231#227'o:'
+    end
+    object edtObservacao: TEdit
+      Left = 100
+      Top = 56
+      Width = 768
+      Height = 23
+      MaxLength = 200
+      TabOrder = 4
+    end
   end
   object grpItem: TGroupBox
     Left = 8
