@@ -392,16 +392,16 @@ begin
     LimparCamposItem;
 
   AtualizarGrid;
+  AtualizarValorTotal;
 end;
 
 procedure TFormPedidoVenda.AtualizarGrid;
 var
-  I: Integer;
   Item: TPedidoItemModel;
 begin
   sgItens.RowCount := FPedido.Itens.Count + 1;
 
-  for I := 0 to FPedido.Itens.Count - 1 do
+  for var I := 0 to FPedido.Itens.Count - 1 do
   begin
     Item := FPedido.Itens[I];
     sgItens.Cells[COL_CODIGO, I + 1] := IntToStr(Item.CodigoProduto);
