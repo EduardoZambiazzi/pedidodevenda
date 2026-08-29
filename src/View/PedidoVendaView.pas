@@ -397,6 +397,7 @@ var
   Item: TPedidoItemModel;
 begin
   sgItens.RowCount := FPedido.Itens.Count + 1;
+
   for I := 0 to FPedido.Itens.Count - 1 do
   begin
     Item := FPedido.Itens[I];
@@ -406,6 +407,9 @@ begin
     sgItens.Cells[COL_VLR_UNITARIO, I + 1] := FormatFloat('0.00', Item.VlrUnitario);
     sgItens.Cells[COL_VLR_TOTAL, I + 1] := FormatFloat('0.00', Item.VlrTotal);
   end;
+
+  if FPedido.Itens.Count > 0 then
+    sgItens.FixedRows := 1;
 end;
 
 procedure TFormPedidoVenda.AtualizarValorTotal;
