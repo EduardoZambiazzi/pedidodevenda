@@ -16,6 +16,7 @@ type
     FNomeCliente: string;
     FCidadeCliente: string;
     FUfCliente: string;
+    FObservacao: string;
     FItens: TObjectList<TPedidoItemModel>;
   public
     constructor Create;
@@ -26,6 +27,7 @@ type
     property NomeCliente: string read FNomeCliente write FNomeCliente;
     property CidadeCliente: string read FCidadeCliente write FCidadeCliente;
     property UfCliente: string read FUfCliente write FUfCliente;
+    property Observacao: string read FObservacao write FObservacao;
     property Itens: TObjectList<TPedidoItemModel> read FItens;
     function ValorTotal: Currency;
   end;

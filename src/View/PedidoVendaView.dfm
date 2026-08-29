@@ -2,7 +2,7 @@ object FormPedidoVenda: TFormPedidoVenda
   Left = 0
   Top = 0
   Caption = 'Pedido de Venda'
-  ClientHeight = 616
+  ClientHeight = 625
   ClientWidth = 900
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,11 +17,11 @@ object FormPedidoVenda: TFormPedidoVenda
   OnShow = FormShow
   DesignSize = (
     900
-    616)
+    625)
   TextHeight = 15
   object lblValorTotalCaption: TLabel
     Left = 560
-    Top = 538
+    Top = 555
     Width = 115
     Height = 15
     Anchors = [akRight, akBottom]
@@ -29,7 +29,7 @@ object FormPedidoVenda: TFormPedidoVenda
   end
   object lblValorTotal: TLabel
     Left = 740
-    Top = 536
+    Top = 553
     Width = 31
     Height = 21
     Anchors = [akRight, akBottom]
@@ -45,7 +45,7 @@ object FormPedidoVenda: TFormPedidoVenda
     Left = 8
     Top = 8
     Width = 884
-    Height = 90
+    Height = 115
     Caption = ' Cliente '
     TabOrder = 0
     object lblClienteCodigo: TLabel
@@ -75,6 +75,13 @@ object FormPedidoVenda: TFormPedidoVenda
       Width = 17
       Height = 15
       Caption = 'UF:'
+    end
+    object lblObservacao: TLabel
+      Left = 16
+      Top = 60
+      Width = 65
+      Height = 15
+      Caption = 'Observa'#231#227'o:'
     end
     object edtClienteCodigo: TEdit
       Left = 80
@@ -111,10 +118,19 @@ object FormPedidoVenda: TFormPedidoVenda
       ReadOnly = True
       TabOrder = 3
     end
+    object mmoObservacao: TMemo
+      Left = 100
+      Top = 56
+      Width = 768
+      Height = 48
+      MaxLength = 200
+      ScrollBars = ssVertical
+      TabOrder = 4
+    end
   end
   object grpItem: TGroupBox
     Left = 8
-    Top = 106
+    Top = 131
     Width = 884
     Height = 90
     Caption = ' Item do Pedido '
@@ -190,16 +206,16 @@ object FormPedidoVenda: TFormPedidoVenda
   end
   object sgItens: TStringGrid
     Left = 8
-    Top = 204
+    Top = 229
     Width = 884
-    Height = 320
+    Height = 318
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 2
     OnKeyDown = sgItensKeyDown
   end
   object btnGravarPedido: TButton
     Left = 780
-    Top = 568
+    Top = 585
     Width = 112
     Height = 32
     Anchors = [akRight, akBottom]

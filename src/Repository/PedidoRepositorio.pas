@@ -48,12 +48,13 @@ begin
     try
       QryPedido.Connection := FConnection;
       QryPedido.SQL.Text :=
-        'INSERT INTO PEDIDO (DATA_EMISSAO, CODIGO_CLIENTE, VALOR_TOTAL) ' +
-        'VALUES (:DATA_EMISSAO, :CODIGO_CLIENTE, :VALOR_TOTAL) ' +
+        'INSERT INTO PEDIDO (DATA_EMISSAO, CODIGO_CLIENTE, VALOR_TOTAL, OBSERVACAO) ' +
+        'VALUES (:DATA_EMISSAO, :CODIGO_CLIENTE, :VALOR_TOTAL, :OBSERVACAO) ' +
         'RETURNING NUMERO_PEDIDO';
       QryPedido.ParamByName('DATA_EMISSAO').AsDateTime := APedido.DataEmissao;
       QryPedido.ParamByName('CODIGO_CLIENTE').AsInteger := APedido.CodigoCliente;
       QryPedido.ParamByName('VALOR_TOTAL').AsCurrency := APedido.ValorTotal;
+      QryPedido.ParamByName('OBSERVACAO').AsString := APedido.Observacao;
       QryPedido.Open;
       NumeroPedido := QryPedido.FieldByName('NUMERO_PEDIDO').AsInteger;
       QryPedido.Close;

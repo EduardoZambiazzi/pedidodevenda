@@ -69,7 +69,7 @@ uses
   PedidoRepositorio;
 
 const
-  CAMINHO_CONFIG_INI = 'D:\Desenvolvimento\delphi\pedidodevenda\config.ini';
+  CAMINHO_CONFIG_INI = 'D:\Desenvolvimento\delphi\ped\config.ini';
 
 procedure TRepositoriosIntegracaoTests.Setup;
 var
@@ -181,6 +181,7 @@ begin
   Pedido := TPedidoModel.Create;
   try
     Pedido.CodigoCliente := 1;
+    Pedido.Observacao := 'Entregar em horário comercial';
     Pedido.Itens.Add(TPedidoItemModel.Create(1, 'Arroz', 2, 28.90));
     Pedido.Itens.Add(TPedidoItemModel.Create(2, 'Feijão', 1, 8.50));
 
@@ -192,12 +193,13 @@ begin
     Qry := TFDQuery.Create(nil);
     try
       Qry.Connection := FConnection;
-      Qry.SQL.Text := 'SELECT CODIGO_CLIENTE, VALOR_TOTAL FROM PEDIDO WHERE NUMERO_PEDIDO = :N';
+      Qry.SQL.Text := 'SELECT CODIGO_CLIENTE, VALOR_TOTAL, OBSERVACAO FROM PEDIDO WHERE NUMERO_PEDIDO = :N';
       Qry.ParamByName('N').AsInteger := NumeroGerado;
       Qry.Open;
       Assert.IsFalse(Qry.Eof, 'Cabeçalho do pedido não foi gravado.');
       Assert.AreEqual(1, Qry.FieldByName('CODIGO_CLIENTE').AsInteger);
       Assert.AreEqual(Currency(66.30), Qry.FieldByName('VALOR_TOTAL').AsCurrency);
+      Assert.AreEqual('Entregar em horário comercial', Trim(Qry.FieldByName('OBSERVACAO').AsString));
       Qry.Close;
 
       Qry.SQL.Text := 'SELECT COUNT(*) AS QTD FROM PEDIDO_ITEM WHERE NUMERO_PEDIDO = :N';
