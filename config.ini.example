@@ -1,0 +1,20 @@
+; Copie este arquivo para "config.ini" (na raiz do projeto, ao lado do .exe)
+; e ajuste os valores para o seu ambiente. O config.ini real NÃO deve ser
+; versionado (contém credenciais) - veja .gitignore.
+
+[Database]
+; Caminho completo do arquivo .fdb
+Path=C:\Bases\PEDIDOVENDA.FDB
+
+; Usuário e senha do Firebird
+Username=SYSDBA
+Password=masterkey
+
+; Endereço e porta do servidor Firebird (localhost/3050 no modo padrão)
+Server=localhost
+Port=3050
+
+; Caminho completo do fbclient.dll a ser usado pela aplicação.
+; Se a aplicação for distribuída com o fbclient.dll na pasta /bin, aponte
+; para ele ali (ex.: bin\fbclient.dll ao lado do executável).
+ClientLibrary=fbclient.dll
